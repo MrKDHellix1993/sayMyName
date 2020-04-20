@@ -1,0 +1,15 @@
+<div *ngIf="isUserLoggedIn">
+    <app-header (toggleSideNavFromHeader)='openSideNavBarTab()' ></app-header>
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" [opened]='openSideNavBar'>
+            <app-side-bar></app-side-bar>
+        </mat-sidenav>
+        <mat-sidenav-content *ngIf="isUserLoggedIn">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
+<div *ngIf="!isUserLoggedIn">
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>
