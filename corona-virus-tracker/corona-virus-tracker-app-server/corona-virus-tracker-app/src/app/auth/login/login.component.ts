@@ -32,14 +32,24 @@ export class LoginComponent implements OnInit {
       'email' : [null, Validators.required],
       'password' : [null, Validators.required]
     });
+    this.loginForm.get('email').value;
   }
 
-  onFormSubmit(form: NgForm) {
+  ngAfterViewChecked(){
+    this.loginForm.get('email').value;
+  }
+
+  public onFormSubmit(form: NgForm) {
+    this.isLoadingResults = true;
     this.authService.login(form)
       .subscribe(res => {
         if (res.token) {
-          localStorage.setItem('token', res.token);
+          sessionStorage.setItem('token', res.token);
           this.router.navigate(['/']);
+          this.isLoadingResults = false;
+        }else{
+          
+          this.isLoadingResults = false;
         }
       }, (err) => {
         console.log(err);

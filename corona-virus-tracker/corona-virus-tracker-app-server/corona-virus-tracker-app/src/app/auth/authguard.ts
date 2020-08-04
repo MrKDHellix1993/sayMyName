@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -17,17 +17,20 @@ export class AuthGuard implements CanActivate {
   }
 
   checkLogin(url: string): boolean {
-    if (this.authService.isLoggedIn) {
-      localStorage.setItem('showDashboard', JSON.stringify(this.authService.isLoggedIn));
-       return true;
-      }
-
-    // Store the attempted URL for redirecting
-    this.authService.redirectUrl = url;
-
-    // Navigate to the login page with extras
-    localStorage.setItem('showDashboard', JSON.stringify(this.authService.isLoggedIn));
-    this.router.navigate(['/login']);
-    return false;
+    /* if (this.authService.isLoggedIn) {
+      sessionStorage.setItem('showDashboard', JSON.stringify(this.authService.isLoggedIn));
+      return true;
+    } */
+    if (sessionStorage && sessionStorage.getItem('token')) {
+      sessionStorage.setItem('showDashboard', 'true');
+      return true;
+    } else {
+      // Store the attempted URL for redirecting
+      this.authService.redirectUrl = url;
+      // Navigate to the login page with extras
+      sessionStorage.setItem('showDashboard', JSON.stringify(this.authService.isLoggedIn));
+      this.router.navigate(['/login']);
+      return false;
+    }
   }
 }

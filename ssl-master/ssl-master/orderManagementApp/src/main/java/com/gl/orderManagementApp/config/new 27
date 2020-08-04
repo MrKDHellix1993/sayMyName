@@ -1,0 +1,11 @@
+00D2w000005li5B!AQwAQBmqetVOpd6URtiItZrHnzSYu3uaxdiDuRDmtZJxbBl6zDCGie7_Hx8Ftx5.x4cnAMNf0bJcnMWbO7ZEmoS86mbvpQhz
+00D2w000005li5B!AQwAQIFuImcBc0gtzElyNRGjbGb8v1M4zMMXB741mauBLim9KfjFdBZiqHMOp4PjY07GRmIE2okaB2RQlhff0LUGI1c2Zndw
+
+keytool -importcert -file "test.cer" -keystore test_salesforce.jks -alias "SalesForce"
+
+C:\My Personal Data/MyPersonal CodeBase/SF Certi/test_salesforce.jks
+
+-Djavax.net.ssl.keyStore -Djavax.net.ssl.trustStore
+
+
+-Djavax.net.ssl.trustStore=C:\Users\kalid\test_salesforce.jks -Djavax.net.ssl.trustStorePassword=changeit

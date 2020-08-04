@@ -20,14 +20,13 @@ public class Users {
 	private String email;
 	private String password;
 	private boolean enabled;
-	
+
 	@OneToMany(fetch = FetchType.EAGER)
 	private Set<Role> roles;
-	
+
 	protected Users() {
 	}
-	
-	
+
 	public Users(Long id, String firstName, String lastName, String email, String password, boolean enabled,
 			Set<Role> roles) {
 		super();
@@ -43,7 +42,7 @@ public class Users {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -55,9 +54,10 @@ public class Users {
 	public String getLastName() {
 		return lastName;
 	}
-	
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+		
 	}
 
 	public void setLastName(String lastName) {

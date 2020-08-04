@@ -13,9 +13,9 @@ export class DashboardComponent implements OnInit {
   private defaultComponent : DefaultComponent;
 
   ngOnInit(): void {
-    if(localStorage.getItem('showDashboard')){
-      console.log('showDB in db COMPONENT' , localStorage.getItem('showDashboard'));
-      if(localStorage.getItem('showDashboard')=='true')
+    if(sessionStorage.getItem('showDashboard')){
+      console.log('showDB in db COMPONENT' , sessionStorage.getItem('showDashboard'));
+      if(sessionStorage.getItem('showDashboard')=='true')
       {
         if(this.defaultComponent){
           this.defaultComponent.isUserLoggedIn = true;

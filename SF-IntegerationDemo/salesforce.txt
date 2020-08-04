@@ -1,0 +1,12 @@
+tId "3MVG9n HVETGhr3BUUg8VWsO9t6e32rQs3iTu. hPS5109pbsm609 g4Zo6peRulzDXDp4TAcvA1GwiVg1MKSIC
+tSecret ="282091D72C42BFFFD62C252B61OE9293846975EOD644342181F799F18C386984"
+ectUrl https //1ocalhost:8443/RestTest/oauth/ callback
+
+onment https://login.salestorce.com
+ame =kalidas@iti.com
+
+ord=Shivaji@16277kigamPYBNO5jWfGmp8ypPXgd7paWore
+
+https://localhost:8443/RestTest/oauth/_callback
+
+Salesforce apassword : AaiBaba1415

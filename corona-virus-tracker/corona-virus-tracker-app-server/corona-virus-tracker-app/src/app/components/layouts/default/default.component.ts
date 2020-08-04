@@ -7,18 +7,21 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./default.component.scss']
 })
 export class DefaultComponent implements OnInit {
-  constructor(private authService: AuthService) { }
+
   public openSideNavBar: boolean = false;
-  public localStorage: Storage;
   @Input()
   public isUserLoggedIn: boolean = false;
+
+  constructor(private authService: AuthService) { }
   ngOnInit(): void {
   }
 
   public ngAfterViewChecked(): void {
-    if (localStorage.getItem('showDashboard') == 'true') {
-      console.log('this.authService.isLoggedIn  ',this.authService.isLoggedIn)
+    if(sessionStorage && sessionStorage.getItem('token')){
       this.isUserLoggedIn = true;
+    }else{
+      this.isUserLoggedIn = false;
+      sessionStorage.setItem('showDashboard', 'false');
     }
   }
 

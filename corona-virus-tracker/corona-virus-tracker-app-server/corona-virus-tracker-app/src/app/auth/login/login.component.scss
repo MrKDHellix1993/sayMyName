@@ -26,3 +26,13 @@
     margin: 5px;
   }
   
+  mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+    margin-top: 15%;
+  }
+  
+  mat-form-field {
+    display: block;
+  }

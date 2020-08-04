@@ -11,21 +11,21 @@ import { LoginComponent } from './auth/login/login.component';
 export const routes: Routes = [
   {
     path: '',
-    component : DefaultComponent,
-    // canActivate: [AuthGuard],
-    children : [
+    component: DefaultComponent,
+    children: [
       {
-      path: '',
-      component: DashboardComponent,
-      canActivate: [AuthGuard]
+        path: '',
+        component: DashboardComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'login',
-        component : LoginComponent
+        component: LoginComponent,
+        // redirectTo : ''
       },
       {
-        path : 'posts',
-        component : PostComponent
+        path: 'posts',
+        component: PostComponent
       },
       {
         path: 'home',
@@ -35,19 +35,30 @@ export const routes: Routes = [
         path: '**',
         component: NoPageFoundComponent
       },
+      {
+        path: 'feature',
+        loadChildren: () => import('./components/feature/feature.module').then(m => m.FeatureModule),
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'register',
+        component: FacilitiesComponent,
+        loadChildren: () => import('./components/facilities/facilities.module').then(m => m.FacilitiesModule),
+        canActivate: [AuthGuard],
+      }
     ]
-  } ,
-  {
+  }
+  /* ,{
     path: 'feature',
     loadChildren: () => import('./components/feature/feature.module').then(m => m.FeatureModule),
     canActivate: [AuthGuard],
   },
   {
-    path: 'facilities',
+    path: 'register',
     component: FacilitiesComponent,
     loadChildren: () => import('./components/facilities/facilities.module').then(m => m.FacilitiesModule),
     canActivate: [AuthGuard],
-  },
+  }, */
 ];
 
 @NgModule({

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   // apiUrl: window.location.origin + "/corovirustracker"
-  apiUrl: 'http://localhost:8080'
+  apiUrl: 'http://192.168.0.107:8080'
 };
 
 /*

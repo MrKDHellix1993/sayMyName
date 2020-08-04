@@ -1,0 +1,21 @@
+mike$ curl --form 
+client_id=3MVG9yZ.WNe6bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxu5AjB4oT9kxi8SEhY 
+--form client_secret=26542xxxxxxxxxxx78  --form grant_type=password --form 
+username=xxxxxxxx@gmail.com --form password=xxxxxxx 
+https://ap16.salesforce.com/services/oauth2/token
+
+
+https://login.salesforce.com/services/oauth2/token?grant_type=password&client
+_id=3MVG9n_HvETGhr3BUUg8VWsO9t1wZFvU0V70uzn3245.Z1MNKC2Yk8GyP8hlvmvMvILVUBOzo
+0I1r_Vg93F.l&client_secret=6E590DFA257309FEFDE6C360C15592828E1930323696A07064E1869D363D05CD&username=kalidas@lti.com&password=AaiBaba
+1415jc5wp5qDYokJQRnrC
+7Qq654p
+
+https://na50.salesforce.com/services/oauth2/token?grant_type=password&client_id=***Consumer Key_Here***&client_secret=***Consumer 
+Secret_Here***&username=*********&password=*****password+securityToken******
+
+Hi,
+
+The following email trail is the latest update I have got from my previous company's HR today.  
+
+Authorization Bearer 00D2w000005li5B!AQwAQDf.etGs3FyTfWmBX9Omk9CLxVuTFm_DTnsobRvTD5T3SujhWFGsFYaqo213qMMXJTKQERgAw4T_88ngWg2KtvP7Ye0o

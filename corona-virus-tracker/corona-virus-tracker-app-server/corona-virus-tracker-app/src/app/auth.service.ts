@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpBackend } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
@@ -9,11 +10,10 @@ const apiUrl = 'http://localhost:8080/api/auth/';
   providedIn: 'root'
 })
 export class AuthService {
-
   isLoggedIn = false;
   redirectUrl: string;
 
-  constructor(private http: HttpClient, private handler : HttpBackend) { 
+  constructor(private http: HttpClient, private handler: HttpBackend, private router: Router) {
     this.http = new HttpClient(handler);
   }
 
@@ -26,9 +26,11 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    return this.http.get<any>(apiUrl + 'signout')
+    return this.http.get<any>(apiUrl + 'logout')
       .pipe(
-        tap(_ => this.isLoggedIn = false),
+        tap(_ => {
+          this.isLoggedIn = false;
+        }),
         catchError(this.handleError('logout', []))
       );
   }
@@ -46,7 +48,6 @@ export class AuthService {
 
       console.error(error); // log to console instead
       this.log(`${operation} failed: ${error.message}`);
-
       return of(result as T);
     };
   }

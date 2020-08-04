@@ -72,4 +72,15 @@ public class AuthController {
 		model.put("message", "User registered successfully");
 		return ok(model);
 	}
+	
+	@PostMapping("/logout")
+	public ResponseEntity logout(@RequestBody Users user) {
+		Users userExists = userService.findUserByEmail(user.getEmail());
+		if (userExists != null) {
+			throw new BadCredentialsException("User with username: " + user.getEmail() + " already exists");
+		}
+		Map<Object, Object> model = new HashMap<>();
+		model.put("message", "User logout successfully");
+		return ok(model);
+	}
 }
