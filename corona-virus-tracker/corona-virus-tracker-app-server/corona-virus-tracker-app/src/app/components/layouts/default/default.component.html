@@ -1,5 +1,5 @@
-<div *ngIf="isUserLoggedIn">
-    <app-header (toggleSideNavFromHeader)='openSideNavBarTab()' ></app-header>
+<div *ngIf="isUserLoggedIn ; else loginPageBlock">
+    <app-header (toggleSideNavFromHeader)='openSideNavBarTab()'></app-header>
     <mat-sidenav-container style="height: 500px;">
         <mat-sidenav mode="side" [opened]='openSideNavBar'>
             <app-side-bar></app-side-bar>
@@ -8,8 +8,10 @@
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
+    <app-footer></app-footer>
 </div>
-<div *ngIf="!isUserLoggedIn">
-    <router-outlet></router-outlet>
-</div>
-<app-footer *ngIf="isUserLoggedIn" ></app-footer>
+<ng-template #loginPageBlock>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</ng-template>

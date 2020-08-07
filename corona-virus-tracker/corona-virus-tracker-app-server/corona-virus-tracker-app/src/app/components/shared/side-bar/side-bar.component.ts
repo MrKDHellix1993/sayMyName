@@ -7,13 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
-
+  
+  public links = ['/', '/home' , '/articles'];
   constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  public goToDataTable() : void{
-    this.router.navigate(['/home']);
+  public navigate() : void{
+    this.router.navigate(['/articles' , "1" ]);
   }
 }

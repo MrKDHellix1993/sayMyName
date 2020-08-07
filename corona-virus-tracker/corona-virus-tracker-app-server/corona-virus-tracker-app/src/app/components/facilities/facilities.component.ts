@@ -13,12 +13,16 @@ export class FacilitiesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public goToLogin() {
+    this.router.navigate(['login']);
+  }
+  
   public OnTabChange(event: MatTabChangeEvent) {
     if (event.index === 0) {
-      this.router.navigate(["facilities/users"]);
+      this.router.navigate(["register/person"]);
     }
     else if (event.index === 1) {
-      this.router.navigate(["facilities/admin"]);
+      this.router.navigate(["register/admin"]);
     }
   }
 }

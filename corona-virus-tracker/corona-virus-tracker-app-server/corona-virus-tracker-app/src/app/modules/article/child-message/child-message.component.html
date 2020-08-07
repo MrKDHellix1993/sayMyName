@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-content>
+        <h2 class="example-h2">Alex [Child]</h2>
+        <div class='div-box'>
+            <div class="col-11">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Type Message" (keydown.enter)="sendMessage()" [(ngModel)]="message">
+                </mat-form-field>
+            </div>
+            <div class="col-2">
+                <div class="example-button-container">
+                    <button mat-mini-fab (click)="sendMessage()">
+                        <mat-icon>send</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

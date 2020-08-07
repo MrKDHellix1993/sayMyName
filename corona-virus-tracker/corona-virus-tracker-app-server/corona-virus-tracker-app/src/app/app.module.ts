@@ -13,11 +13,17 @@ import { LoginComponent } from './auth/login/login.component';
 import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth/http-interceptor/auth-interceptor';
+import { ArticleComponent } from './modules/article/article.component';
+import { ChildMessageComponent } from './modules/article/child-message/child-message.component';
+import { AlphaCountDirective } from './modules/article/alpha-count.directive';
 @NgModule({
   declarations: [
     AppComponent,
     NoPageFoundComponent,
-    LoginComponent
+    LoginComponent,
+    ArticleComponent,
+    ChildMessageComponent,
+    AlphaCountDirective
   ],
   imports: [
     BrowserModule,

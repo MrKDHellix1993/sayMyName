@@ -1,6 +1,6 @@
 package io.javaworkshop.coronavirustracker.auth.controllers;
 
-public class AuthBody {
+public class AuthData {
 
 	private String email;
     private String password;

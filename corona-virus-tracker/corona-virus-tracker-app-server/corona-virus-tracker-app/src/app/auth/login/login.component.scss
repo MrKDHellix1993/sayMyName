@@ -1,7 +1,9 @@
 /* Structure */
 .example-container {
-    position: relative;
+    position: absolute;
     padding: 5px;
+    height: 100%;
+    width: 100%;
   }
   
   .example-form {

@@ -28,12 +28,34 @@ $corona-virus-tracker-app-theme: mat-light-theme($corona-virus-tracker-app-prima
 
 /* You can add global styles to this file, and also import other style files */
 
-html, body {
+/* html, body {
      height: 100%;
      max-width: 100%;
      overflow-x: hidden;
- }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-div{
-    overflow-y: hidden;
+ } */
+
+ header {
+    flex-shrink: 0;
 }
+ body{
+    -moz-flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    flex-grow: 1;
+    overflow: auto;
+    min-height: 2em;
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+footer{
+    padding: 1em;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+}
+
+/* div{
+    overflow-y: hidden;
+} */

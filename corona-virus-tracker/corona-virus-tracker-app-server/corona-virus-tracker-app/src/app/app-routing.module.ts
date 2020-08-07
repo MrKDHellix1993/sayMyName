@@ -8,20 +8,25 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { PostComponent } from './modules/posts/post.component';
 import { AuthGuard } from './auth/authguard';
 import { LoginComponent } from './auth/login/login.component';
+import { ArticleComponent } from './modules/article/article.component';
 export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full'
+  },
   {
     path: '',
     component: DefaultComponent,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         component: DashboardComponent,
         canActivate: [AuthGuard]
       },
       {
         path: 'login',
         component: LoginComponent,
-        // redirectTo : ''
       },
       {
         path: 'posts',
@@ -32,33 +37,20 @@ export const routes: Routes = [
         component: HomeInfoTableComponent
       },
       {
-        path: '**',
-        component: NoPageFoundComponent
-      },
-      {
-        path: 'feature',
-        loadChildren: () => import('./components/feature/feature.module').then(m => m.FeatureModule),
-        canActivate: [AuthGuard],
-      },
-      {
         path: 'register',
         component: FacilitiesComponent,
-        loadChildren: () => import('./components/facilities/facilities.module').then(m => m.FacilitiesModule),
-        canActivate: [AuthGuard],
+        loadChildren: () => import('./components/facilities/facilities.module').then(m => m.FacilitiesModule)
+      },
+      {
+        path: 'articles/:id',
+        component: ArticleComponent
+      },
+      {
+        path: '**',
+        component: NoPageFoundComponent
       }
     ]
-  }
-  /* ,{
-    path: 'feature',
-    loadChildren: () => import('./components/feature/feature.module').then(m => m.FeatureModule),
-    canActivate: [AuthGuard],
   },
-  {
-    path: 'register',
-    component: FacilitiesComponent,
-    loadChildren: () => import('./components/facilities/facilities.module').then(m => m.FacilitiesModule),
-    canActivate: [AuthGuard],
-  }, */
 ];
 
 @NgModule({

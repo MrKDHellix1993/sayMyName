@@ -1,6 +1,8 @@
 import { EnrollmentService } from './services/enrollment.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { passwordMissmatchChecker } from '../../common-validations/validation-function';
 
 @Component({
   selector: 'app-users',
@@ -9,7 +11,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class UsersComponent implements OnInit {
 
-  constructor(private enrollmentService: EnrollmentService) { }
+  constructor(private formBuilder: FormBuilder ,private enrollmentService: EnrollmentService) { }
   public timePreference: string = 'morning';
   public successMsg: string;
   public errorMsg: string;
@@ -17,11 +19,19 @@ export class UsersComponent implements OnInit {
   public isErrorInSelection = true;
   public isFromSubmitted = false;
   public symptomsList = ['Respiratory Symptoms', 'Fever', 'Shortness of Breath'];
+  public registrationForm: FormGroup;
   ngOnInit(): void {
+    this.registrationForm = this.formBuilder.group(
+      {
+        password: [''],
+        confirmpassword: [''],
+      }, { validator: passwordMissmatchChecker });
+
     this.userData = {
       username: 'Kalidas',
       email: 'kd@outlook.com',
-      telephone: 98556663,
+      password : "kd@123",
+      telephone: 9855666399,
       symptom: 'default',
       timePreference: 'morning',
       subscribe: true
@@ -33,6 +43,10 @@ export class UsersComponent implements OnInit {
   }
 
   public onSubmit() {
+    let password : string = this.registrationForm.get('password').value;
+    if(password){
+      this.userData.password = password;
+    }
     this.enrollmentService.performUserDataEnrollment(this.userData).subscribe(
       (res : User) => {
         if (res) {
@@ -53,6 +67,7 @@ export class User {
   constructor(
     public username: string,
     public email: string,
+    public password: string,
     public telephone: number,
     public symptom: string,
     public timePreference: string,

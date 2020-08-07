@@ -1,0 +1,53 @@
+<h2>Angular Practice</h2>
+<mat-divider></mat-divider>
+<mat-card>
+    <mat-card-content>
+        <h2 class="example-h2">1) ngSwitch Example</h2>
+        <label id="example-radio-group-label">Pick your favorite Web-Series</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            [(ngModel)]="favoriteWebSeries">
+            <mat-radio-button class="example-radio-button" *ngFor="let season of seasons; index as i ; even as e"
+                [value]="season">
+                {{season}}
+            </mat-radio-button>
+        </mat-radio-group>
+        <div [ngSwitch]="favoriteWebSeries">
+            <div *ngSwitchCase="'Breaking Bad'">Your favorite Web Series is: {{favoriteWebSeries}} </div>
+            <div *ngSwitchCase="'Better Call Saul'">Your favorite Web Series is: {{favoriteWebSeries}} </div>
+            <div *ngSwitchCase="'Dark'">Your favorite Web Series is: {{favoriteWebSeries}} </div>
+            <div *ngSwitchDefault>Your favorite Web Series is: </div>
+        </div>
+        <div>
+             {{ 56.89 | currency : 'INR'}}
+        </div>
+    </mat-card-content>
+</mat-card>
+<mat-divider></mat-divider>
+<h2 class="example-h2">2) Component Interaction Example</h2>
+<div class='message-box'>
+    <div class="col-6">
+        <mat-card class='card-box'>
+            <mat-card-content>
+                <h2 appAlphaCount class="example-h2">Izzie [Parent]</h2>
+                <div class='message-box'>
+                    <div class="col-11">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Type Message" [ngModel]="message"
+                            (keydown.enter)="sendMessage()" (ngModelChange)="newMesssage=$event">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-1">
+                        <div class="example-button-container">
+                            <button mat-mini-fab (click)="sendMessage()">
+                                <mat-icon>send</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="col-6">
+        <app-child-message  [parentMessage]="message" (childMessage)="message=$event"></app-child-message>
+    </div>
+</div>

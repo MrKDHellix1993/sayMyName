@@ -20,6 +20,7 @@ import io.javaworkshop.coronavirustracker.models.LocationStats;
 import io.javaworkshop.coronavirustracker.reposistory.UserRepository;
 import io.javaworkshop.coronavirustracker.services.CoronaVirusFetchDataService;
 
+@RequestMapping("/api/auth")
 @RestController
 public class HomeDataRestController {
 
